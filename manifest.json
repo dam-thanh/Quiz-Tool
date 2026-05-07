@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Quiz Tool - Hosting",
+  "version": "4.0.0",
+  "description": "Thu thập đáp án quiz, lưu lên hosting cá nhân và tự động điền đáp án.",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/qrchuyenkhoan.jpg"],
+      "matches": ["*://*/*"]
+    }
+  ],
+  "icons": {
+    "16": "icons/quiz.png",
+    "48": "icons/quiz.png",
+    "128": "icons/quiz.png"
+  }
+}
